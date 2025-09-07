@@ -36,47 +36,55 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun createSamplePosts(): List<Post> {
         return listOf(
-            // image (square)
+            // 1. Square image
             Post(
                 id = "1",
                 type = PostType.IMAGE,
                 imageRes = R.drawable.sample1,
-                text = "Sunset vibes #photography",
-                aspectRatio = 1f  // square
+                text = "Mobile #photography",
+                aspectRatio = 1f // square
             ),
-            // portrait image
+            // 2. Portrait image
             Post(
                 id = "2",
                 type = PostType.IMAGE,
-                imageRes = R.drawable.sample1,
-                text = "Tall building",
-                aspectRatio = 0.66f // width/height (narrow wide)
+                imageRes = R.drawable.tall_building,
+                text = "Tall building #architecture",
+                aspectRatio = 2f / 3f // portrait
             ),
-            // video (local raw)
+            // 3. Landscape image
             Post(
                 id = "3",
-                type = PostType.VIDEO,
-                videoRes = R.raw.video1,
-                text = "Skateboard tricks",
-                aspectRatio = 9f / 16f  // portrait video -> width/height
+                type = PostType.IMAGE,
+                imageRes = R.drawable.landscape_image,
+                text = "Sunset Vibe #travel",
+                aspectRatio = 16f / 9f // landscape
             ),
-            // text post
+            // 4. Portrait video
             Post(
                 id = "4",
-                type = PostType.TEXT,
-                text = "Small thread: Why RecyclerView performance matters."
+                type = PostType.VIDEO,
+                videoRes = R.raw.video1,
+                text = "Connection 5G",
+                aspectRatio = 9f / 16f // portrait video
             ),
-            // landscape image
+            // 5. Landscape video
             Post(
                 id = "5",
-                type = PostType.IMAGE,
-                imageRes = R.drawable.sample1,
-                text = "Wide road ahead",
-                aspectRatio = 16f / 9f
+                type = PostType.VIDEO,
+                videoRes = R.raw.video2,
+                text = "Nature timelapse 🌲",
+                aspectRatio = 16f / 9f // landscape video
+            ),
+            // 6. Text-only post
+            Post(
+                id = "6",
+                type = PostType.TEXT,
+                text = "Thread: Why RecyclerView performance matters ⚡"
             )
         )
     }
+
 }
