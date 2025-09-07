@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InstaFeed</string>
+    <string name="post_image">Post image</string>
+    <string name="play_icon">Play Icon</string>
 </resources>

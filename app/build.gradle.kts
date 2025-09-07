@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.imthiyas.instafeed"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.imthiyas.instafeed"
@@ -33,11 +33,15 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        viewBinding =true
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -45,4 +49,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
 }
