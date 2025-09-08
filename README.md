@@ -24,7 +24,7 @@ An **Instagram-like feed UI** built with **RecyclerView + ConstraintLayout**, su
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Language:** Kotlin  
 - **UI:** ConstraintLayout, RecyclerView  
