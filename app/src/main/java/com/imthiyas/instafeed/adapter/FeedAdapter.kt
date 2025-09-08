@@ -111,16 +111,17 @@ class FeedAdapter(
         }
     }
 
+
     inner class VideoVH(view: View) : RecyclerView.ViewHolder(view) {
         private val videoView: VideoView = view.findViewById(R.id.postVideo)
         private val overlay: TextView = view.findViewById(R.id.videoOverlayText)
         private val playIcon: ImageView = view.findViewById(R.id.playIcon)
+        private val videoContainer: FrameLayout = view.findViewById(R.id.videoContainer)
         private var isPrepared = false
 
         fun bind(post: Post) {
             overlay.text = post.text ?: ""
 
-            // set video uri (local raw or remote)
             val ctx = videoView.context
             val uri: Uri? = when {
                 post.videoUrl != null -> Uri.parse(post.videoUrl)
@@ -134,27 +135,25 @@ class FeedAdapter(
                 videoView.setOnPreparedListener { mp ->
                     isPrepared = true
                     mp.isLooping = true
-                    // auto start muted for feed-style behaviour (VideoView doesn't support volume directly)
                     try {
                         mp.setVolume(0f, 0f)
                     } catch (_: Throwable) {
                     }
-                    // show play icon briefly then hide when playing
                     videoView.start()
                     playIcon.visibility = View.GONE
                 }
+
                 videoView.setOnCompletionListener {
-                    // loop (we also set isLooping)
                     videoView.start()
                 }
 
-                // Toggle play/pause on click
-                videoView.setOnClickListener {
+                // Toggle play/pause on entire video container
+                videoContainer.setOnClickListener {
                     togglePlayPause()
                 }
+                // Optional: also keep icon clickable
                 playIcon.setOnClickListener { togglePlayPause() }
             } else {
-                // no video -> show placeholder
                 playIcon.visibility = View.VISIBLE
             }
         }
@@ -177,6 +176,7 @@ class FeedAdapter(
             }
         }
     }
+
 
     inner class TextVH(view: View) : RecyclerView.ViewHolder(view) {
         private val text: TextView = view.findViewById(R.id.textOnly)

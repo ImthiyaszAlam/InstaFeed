@@ -62,28 +62,90 @@ class MainActivity : AppCompatActivity() {
                 text = "Sunset Vibe #travel",
                 aspectRatio = 16f / 9f // landscape
             ),
-            // 4. Portrait video
+            // 6. Text-only post
             Post(
                 id = "4",
-                type = PostType.VIDEO,
-                videoRes = R.raw.video1,
-                text = "Connection 5G",
-                aspectRatio = 9f / 16f // portrait video
+                type = PostType.TEXT,
+                text = "Thread: Why RecyclerView performance matters "
             ),
-            // 5. Landscape video
+
             Post(
                 id = "5",
                 type = PostType.VIDEO,
-                videoRes = R.raw.video2,
-                text = "Nature timelapse 🌲",
+                videoRes = R.raw.video_3,
+                text = "Nature ",
                 aspectRatio = 16f / 9f // landscape video
+            ),
+
+            Post(
+                id = "6",
+                type = PostType.VIDEO,
+                videoRes = R.raw.video4,
+                text = "Nature timelapse",
+                aspectRatio = 16f / 9f // landscape video
+            ),
+
+            Post(
+                id = "7",
+                type = PostType.VIDEO,
+                videoRes = R.raw.video6,
+                text = "Nature Tigers",
+                aspectRatio = 16f / 9f // landscape video
+            ),
+            // 1. Square image
+            Post(
+                id = "8",
+                type = PostType.IMAGE,
+                imageRes = R.drawable.sample1,
+                text = "Mobile #photography",
+                aspectRatio = 1f // square
+            ),
+            // 2. Portrait image
+            Post(
+                id = "9",
+                type = PostType.IMAGE,
+                imageRes = R.drawable.tall_building,
+                text = "Tall building #architecture",
+                aspectRatio = 2f / 3f // portrait
+            ),
+            // 3. Landscape image
+            Post(
+                id = "10",
+                type = PostType.IMAGE,
+                imageRes = R.drawable.landscape_image,
+                text = "Sunset Vibe #travel",
+                aspectRatio = 16f / 9f // landscape
             ),
             // 6. Text-only post
             Post(
-                id = "6",
+                id = "11",
                 type = PostType.TEXT,
-                text = "Thread: Why RecyclerView performance matters ⚡"
-            )
+                text = "Thread: Why RecyclerView performance matters "
+            ),
+
+            Post(
+                id = "12",
+                type = PostType.VIDEO,
+                videoRes = R.raw.video_3,
+                text = "Nature ",
+                aspectRatio = 16f / 9f // landscape video
+            ),
+
+            Post(
+                id = "13",
+                type = PostType.VIDEO,
+                videoRes = R.raw.video4,
+                text = "Nature timelapse",
+                aspectRatio = 16f / 9f // landscape video
+            ),
+
+            Post(
+                id = "14",
+                type = PostType.VIDEO,
+                videoRes = R.raw.video6,
+                text = "Nature Tigers",
+                aspectRatio = 16f / 9f // landscape video
+            ),
         )
     }
 
