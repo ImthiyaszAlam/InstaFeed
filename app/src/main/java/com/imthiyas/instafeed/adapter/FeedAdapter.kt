@@ -1,7 +1,5 @@
-// adapter/FeedAdapter.kt
-package com.example.instafeed.adapter
+package com.imthiyas.instafeed.adapter
 
-import android.media.MediaPlayer
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -66,24 +64,16 @@ class FeedAdapter(
         super.onViewDetachedFromWindow(holder)
     }
 
-    // === ViewHolders ===
     inner class ImageVH(view: View) : RecyclerView.ViewHolder(view) {
         private val image: ImageView = view.findViewById(R.id.postImage)
         private val overlay: TextView = view.findViewById(R.id.overlayText)
 
         fun bind(post: Post) {
-            // Set overlay text
             overlay.text = post.text ?: ""
 
-            // Adjust ratio if provided
             post.aspectRatio?.let { ratio ->
-                // ratio is width/height. To set ratio in ConstraintLayout use "W,H" format: "W,16:9"? We'll set programmatically
-                val lp = image.layoutParams
-                // ConstraintLayout.LayoutParams needed — cast
+               val lp = image.layoutParams
                 (lp as? androidx.constraintlayout.widget.ConstraintLayout.LayoutParams)?.let { cLp ->
-                    // ConstraintLayout dimension ratio expects "W,H" or "H,W". We'll set "W,ratio:1"
-                    // But ConstraintLayout dimensionRatio expects "w,h" like "W,3:4", but easier: set "X:Y" where X:Y = width:height.
-                    // We'll convert ratio to string ratioString = "${(ratio*100).toInt()}:100"
                     val rNumer = (ratio * 100).toInt()
                     val rDenom = 100
                     cLp.dimensionRatio = "$rNumer:$rDenom"
@@ -91,9 +81,7 @@ class FeedAdapter(
                 }
             }
 
-            // Load image - using Glide if available; otherwise load local drawable
             if (post.imageUrl != null) {
-                // Glide recommended
                 try {
                     Glide.with(image.context)
                         .load(post.imageUrl)
@@ -147,11 +135,9 @@ class FeedAdapter(
                     videoView.start()
                 }
 
-                // Toggle play/pause on entire video container
                 videoContainer.setOnClickListener {
                     togglePlayPause()
                 }
-                // Optional: also keep icon clickable
                 playIcon.setOnClickListener { togglePlayPause() }
             } else {
                 playIcon.visibility = View.VISIBLE
