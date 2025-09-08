@@ -17,14 +17,14 @@ An **Instagram-like feed UI** built with **RecyclerView + ConstraintLayout**, su
   - Dynamic aspect ratio handling
   - Overlay text captions
 
-- 📱 **Feed with RecyclerView**
+-  **Feed with RecyclerView**
   - Efficient item recycling
   - Separate ViewHolders for Image & Video
   - Smooth scrolling performance
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 - **Language:** Kotlin  
 - **UI:** ConstraintLayout, RecyclerView  
