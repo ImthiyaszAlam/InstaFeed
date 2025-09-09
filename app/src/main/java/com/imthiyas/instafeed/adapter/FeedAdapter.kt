@@ -125,11 +125,21 @@ class FeedAdapter(
                     mp.isLooping = true
                     try {
                         mp.setVolume(0f, 0f)
-                    } catch (_: Throwable) {
+                    } catch (_: Throwable) {}
+
+                    val videoWidth = mp.videoWidth
+                    val videoHeight = mp.videoHeight
+
+                    val lp = videoContainer.layoutParams
+                    if (lp is androidx.constraintlayout.widget.ConstraintLayout.LayoutParams) {
+                        lp.dimensionRatio = "$videoWidth:$videoHeight"
+                        videoContainer.layoutParams = lp
                     }
+
                     videoView.start()
                     playIcon.visibility = View.GONE
                 }
+
 
                 videoView.setOnCompletionListener {
                     videoView.start()
